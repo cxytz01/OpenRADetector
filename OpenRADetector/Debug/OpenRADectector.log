@@ -1,0 +1,17 @@
+﻿  console_cls.cpp
+  OpenRABiz.cpp
+  string_view is only available with C++17 or later.
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\OpenRABiz.h(7,10): fatal error C1083: Cannot open include file: 'nlohmann/json.hpp': No such file or directory
+  OpenRADectector.cpp
+  class template optional is only available with C++17 or later.
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\OpenRADectector.cpp(9,10): fatal error C1083: Cannot open include file: 'nlohmann/json.hpp': No such file or directory
+  process_handle.cpp
+  string_view is only available with C++17 or later.
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(12,25): error C2039: 'wstring_view': is not a member of 'std'
+D:\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\include\iostream(19): message : see declaration of 'std'
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(12,38): error C2065: 'wstring_view': undeclared identifier
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(12,38): error C2146: syntax error: missing ')' before identifier 'target'
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(12,46): error C2143: syntax error: missing ';' before '{'
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(12,46): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\bluec\source\repos\OpenRADectector\OpenRADectector\process_handle.cpp(29,9): error C3861: 'DetectProcess': identifier not found
+  Generating Code...

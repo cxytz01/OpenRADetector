@@ -1,0 +1,24 @@
+# Visual Studio
+Release
+bin
+obj
+*.ncb
+*.vcproj*
+*.suo
+*.user
+*.sln.cache
+*.manifest
+*.CodeAnalysisLog.xml
+*.lastcodeanalysissucceeded
+_ReSharper.*/
+/.vs
+
+# binaries
+/*.dll
+/*.dll.config
+/*.so
+/*.dylib
+/*.pdb
+/*.mdb
+/*.exe
+/*.exe.config
