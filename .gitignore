@@ -12,6 +12,8 @@ obj
 *.lastcodeanalysissucceeded
 _ReSharper.*/
 .vs
+./x64
+OpenRADetector/x64
 
 # binaries
 /*.dll
