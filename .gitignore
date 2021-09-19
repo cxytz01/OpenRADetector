@@ -11,7 +11,7 @@ obj
 *.CodeAnalysisLog.xml
 *.lastcodeanalysissucceeded
 _ReSharper.*/
-/.vs
+.vs
 
 # binaries
 /*.dll
