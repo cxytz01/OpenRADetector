@@ -106,6 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\OpenSSL-Win64-1_1_1L\include;.\cpp-httplib-master;.\json-develop\include;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,16 +157,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="console_cls.cpp" />
     <ClCompile Include="OpenRABiz.cpp" />
     <ClCompile Include="OpenRADetector.cpp" />
-    <ClCompile Include="process_handle.cpp" />
+    <ClCompile Include="utility\console_cls.cpp" />
+    <ClCompile Include="utility\detector_net.cpp" />
+    <ClCompile Include="utility\path.cpp" />
+    <ClCompile Include="utility\process_handle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="console_cls.h" />
-    <ClInclude Include="defer.h" />
     <ClInclude Include="OpenRABiz.h" />
-    <ClInclude Include="process_handle.h" />
+    <ClInclude Include="utility\color_test.h" />
+    <ClInclude Include="utility\console_cls.h" />
+    <ClInclude Include="utility\defer.h" />
+    <ClInclude Include="utility\detector_net.h" />
+    <ClInclude Include="utility\path.h" />
+    <ClInclude Include="utility\process_handle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

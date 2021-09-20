@@ -1,4 +1,5 @@
 #include "OpenRABiz.h"
+#include "spdlog/spdlog.h"
 
 OpenRABiz::OpenRABiz(decltype(nlohmann::json::parse("placeholder").items().begin().value()) &v) {
 
@@ -114,26 +115,23 @@ vector<ClientInfo>& OpenRABiz::SetClients(_Valty&&... _Val) {
 //}
 
 void D2KBiz::print(uint16_t index) const {
-	printf("Game@%u:\n", index);
+	spdlog::info("Game@{}:", index);
+	spdlog::info("  Name{}: {}", 0 != protectedx ? "(LOCK)" : "", name);
 
-	printf("  Name%s: %s\n", 0 != protectedx ? "LOCK)" : "", name.c_str());
+	spdlog::info("  Address: {}", address);
+	if (Is_empty()) spdlog::info("  State: EMPTY");
+	if (Is_waiting()) spdlog::info("  State: WAITING");
+	if (Is_playing()) spdlog::info ("  State: PLAYING - In progress for {} minutes", playtime / 60);
 
-	printf("  Address: %s\n", address.c_str());
-	printf("  State: %s", 2 == state ? "PLAYING" : "WAITING");
-
-	if (2 == state) printf(" - In progress for %u minutes", playtime / 60);
-	printf("\n");
-
-	printf("  Mods: %s@%s\n", mod.c_str(), version.c_str());
-	printf("  Players: %u/%u+%u, Bots: %u\n", players, maxplayers, spectators, bots);
-	printf("  \t");
+	spdlog::info("  Mods: {}@{}", mod, version);
+	spdlog::info("  Players: {}/{}+{}, Bots: {}", players, maxplayers, spectators, bots);
 
 	auto humans = move(GetHumans());
-	for (auto& h : humans) printf("+%s ", h->name.c_str());
-	if (0 == humans.size()) printf("......");
-	printf("\n");
-	printf("  Location: %s\n", location.c_str());
-	printf("---------------------------------------\n");
+	string players = "  \t";
+	for (auto& h : humans) players += "+" + h->name + " ";
+	if (0 != humans.size()) spdlog::info(players);
+	spdlog::info("  Location: {}", location);
+	spdlog::info("---------------------------------------");
 }
 
 

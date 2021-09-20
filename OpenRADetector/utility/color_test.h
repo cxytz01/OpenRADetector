@@ -1,5 +1,8 @@
+#pragma once
+
 #include <cstdio>
 
+#ifdef _DEBUG
 inline void color_test() {
 	printf("\033[30m -- black --\033[0m\n");
 	printf("\033[31m -- red --\033[0m\n");
@@ -23,3 +26,4 @@ inline void color_test() {
 	printf("\033[7m -- Negative(reverse the foreground and background) --\033[0m\n");
 	printf("\033[27m -- Positive(no negative) --\033[0m\n");
 }
+#endif //_DEBUG
