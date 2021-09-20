@@ -26,9 +26,6 @@
     <ClCompile Include="utility\process_handle.cpp">
       <Filter>Source Files\utility</Filter>
     </ClCompile>
-    <ClCompile Include="utility\path.cpp">
-      <Filter>Source Files\utility</Filter>
-    </ClCompile>
     <ClCompile Include="utility\detector_net.cpp">
       <Filter>Source Files\utility</Filter>
     </ClCompile>

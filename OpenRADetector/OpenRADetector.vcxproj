@@ -161,7 +161,6 @@
     <ClCompile Include="OpenRADetector.cpp" />
     <ClCompile Include="utility\console_cls.cpp" />
     <ClCompile Include="utility\detector_net.cpp" />
-    <ClCompile Include="utility\path.cpp" />
     <ClCompile Include="utility\process_handle.cpp" />
   </ItemGroup>
   <ItemGroup>
