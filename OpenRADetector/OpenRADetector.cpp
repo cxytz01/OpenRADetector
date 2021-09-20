@@ -53,7 +53,10 @@ std::optional<string> httprequest(string_view host, string_view path, const http
 int main(int argc, char *argv[]) {
 	//color_test();
 
-	defer _(nullptr, [](...) {std::cin.get(); });
+	defer _(nullptr, [](...) {
+		std::cout << "detector exits." << std::endl;
+		std::cin.get();
+		});
 
 	const OpenRAInfo d2k;
 
@@ -75,8 +78,8 @@ int main(int argc, char *argv[]) {
 			const D2KBiz d2kbz(value);
 			if (!d2kbz.Is_20210321_d2k_version()) continue;
 
-			//if (!d2kbz.Is_waiting()) continue;
-			if (d2kbz.Is_empty() /*|| d2kbz.Is_locked() || d2kbz.Is_playing()*/) continue;
+			if (!d2kbz.Is_waiting()) continue;
+			//if (d2kbz.Is_empty() /*|| d2kbz.Is_locked() || d2kbz.Is_playing()*/) continue;
 
 			d2kbz.print(index);
 			rooms.insert({ move(std::to_string(index++)), d2kbz });
@@ -113,12 +116,17 @@ int main(int argc, char *argv[]) {
 					printf("  room: \"%s\" is playing.\n", line);
 					continue;
 				} 
+				if (rooms[line].Is_locked()) {
+					printf("  room: \"%s\" is locked.\n", line);
+					continue;
+				} 
 				if (DetectD2kProcess()) {
 					printf("  the game(d2k) has running.\n");
 					continue;
 				}
 
-				printf("Entering room =====>>> Game@%s: \"\033[7m%s\033[0m\"/\033[4m%s\033[0m\n", line, rooms[line].GetName().c_str(), rooms[line].GetLocation().c_str());
+				//printf("Entering room =====>>> Game@%s: \"\033[7m%s\033[0m\"/\033[4m%s\033[0m\n", line, rooms[line].GetName().c_str(), rooms[line].GetLocation().c_str());
+				printf("Entering room =====>>> Game@%s: \"%s\"/%s\n", line, rooms[line].GetName().c_str(), rooms[line].GetLocation().c_str());
 
 				if (argc >= 2) {
 					sprintf_s(line, "\"%s\" Launch.URI=openra-%s-%s://%s/", argv[1], rooms[line].GetMod().c_str(), rooms[line].GetVersion().c_str(), rooms[line].GetAddress().c_str());

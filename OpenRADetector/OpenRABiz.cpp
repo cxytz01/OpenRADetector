@@ -90,13 +90,36 @@ vector<ClientInfo>& OpenRABiz::SetClients(_Valty&&... _Val) {
 	return clients;
 };*/
 
+//void D2KBiz::print(uint16_t index) const {
+//	printf("Game@%u:\n", index);
+//
+//	printf("  Name%s: \033[7m%s\033[0m\n", 0 != protectedx ? "(\033[31mLOCK\033[0m)" : "", name.c_str());
+//
+//	printf("  Address: %s\n", address.c_str());
+//	printf("  State: %s", 2 == state?"\033[32mPLAYING\033[0m":"\033[33mWAITING\033[0m");
+//
+//	if (2 == state) printf(" - In progress for %u minutes", playtime / 60);
+//	printf("\n");
+//
+//	printf("  Mods: %s@%s\n", mod.c_str(), version.c_str());
+//	printf("  Players: %u/%u+%u, Bots: %u\n", players, maxplayers, spectators, bots);
+//	printf("  \t");
+//
+//	auto humans = move(GetHumans());
+//	for (auto &h : humans) printf("\033[96m+%s\033[0m ", h->name.c_str());
+//	if (0 == humans.size()) printf("......");
+//	printf("\n");
+//	printf("  Location: %s\n", location.c_str());
+//	printf("---------------------------------------\n");
+//}
+
 void D2KBiz::print(uint16_t index) const {
 	printf("Game@%u:\n", index);
 
-	printf("  Name%s: \033[7m%s\033[0m\n", 0 != protectedx ? "(\033[31mLOCK\033[0m)" : "", name.c_str());
+	printf("  Name%s: %s\n", 0 != protectedx ? "LOCK)" : "", name.c_str());
 
 	printf("  Address: %s\n", address.c_str());
-	printf("  State: %s", 2 == state?"\033[32mPLAYING\033[0m":"\033[33mWAITING\033[0m");
+	printf("  State: %s", 2 == state ? "PLAYING" : "WAITING");
 
 	if (2 == state) printf(" - In progress for %u minutes", playtime / 60);
 	printf("\n");
@@ -106,7 +129,7 @@ void D2KBiz::print(uint16_t index) const {
 	printf("  \t");
 
 	auto humans = move(GetHumans());
-	for (auto &h : humans) printf("\033[96m+%s\033[0m ", h->name.c_str());
+	for (auto& h : humans) printf("+%s ", h->name.c_str());
 	if (0 == humans.size()) printf("......");
 	printf("\n");
 	printf("  Location: %s\n", location.c_str());
