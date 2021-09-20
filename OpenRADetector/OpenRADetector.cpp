@@ -53,10 +53,10 @@ std::optional<string> httprequest(string_view host, string_view path, const http
 int main(int argc, char *argv[]) {
 	//color_test();
 
-	defer _(nullptr, [](...) {
+	/*defer _(nullptr, [](...) {
 		std::cout << "detector exits." << std::endl;
 		std::cin.get();
-		});
+		});*/
 
 	const OpenRAInfo d2k;
 
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
 		if (DetectD2kProcess()) continue;
 
 		auto raw = httprequest(d2k.WatchHost, d2k.WatchPath, generateOpenRAHeader());
-		if (std::nullopt == raw) return 0;
+		if (std::nullopt == raw) continue;
 		//LOG(INFO) << raw;
 
 		nlohmann::json gameRoomInfo = nlohmann::json::parse(raw.value());
