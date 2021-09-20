@@ -16,11 +16,12 @@ _ReSharper.*/
 OpenRADetector/x64
 
 # binaries
-/*.dll
-/*.dll.config
-/*.so
-/*.dylib
-/*.pdb
-/*.mdb
-/*.exe
-/*.exe.config
+*.dll
+*.dll.config
+*.so
+*.dylib
+*.pdb
+*.mdb
+*.exe
+*.exe.config
+*.ilk
