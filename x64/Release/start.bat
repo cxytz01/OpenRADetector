@@ -1,0 +1,1 @@
+OpenRADetector.exe F:\games\OpenRA\Dune2000.exe
