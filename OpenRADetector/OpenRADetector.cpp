@@ -45,6 +45,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	for (;; std::this_thread::sleep_for(std::chrono::seconds(30)), ClearScreen()) {
+		spdlog::info("Detecting...\n");
+
 		if (DetectD2kProcess()) {
 			spdlog::warn("D2K process is running. Stop the game lobby detecting until the next loop in 30 seconds.");
 			continue;
