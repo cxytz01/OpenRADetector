@@ -14,10 +14,8 @@ This program is used to monitor the OpenRA room in real-time. Currently, only D2
 ## Install
 0. Install spdlog with vcpkg  ---  https://github.com/gabime/spdlog#package-managers
     vcpkg install  spdlog:x64-windows
-    
 1. install openssl win64 1.1.1
-
-2. download source code:    
+2. download source code: 
     ```console
     $ git@github.com:cxytz01/OpenRADetector.git
     $ cd OpenRADetector
@@ -36,7 +34,7 @@ OpenRADetector.exe F:\games\OpenRA\Dune2000.exe
 
 0.When there are some waiting rooms, the console would be activated.
 
-![example](.\assets\example.png)
+![example](./assets/example.png)
 
 1.Enter q|Q|quit|QUIT to exist the command line.
 
