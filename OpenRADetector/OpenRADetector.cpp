@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 			const D2KBiz d2kbz(value);
 
 			if (!d2kbz.Is_20210321_d2k_version()) continue; //if (d2kbz.Is_empty() || d2kbz.Is_locked() || d2kbz.Is_playing()) continue;
-			if (!d2kbz.Is_waiting()) continue;
+			if (!d2kbz.Is_waiting() || d2kbz.Is_locked()) continue;
 			else {
 				has_waiting_room = true;
 				FLASHWINFO fwi{ sizeof FLASHWINFO, GetConsoleWindow(), FLASHW_ALL | FLASHW_TIMERNOFG, 10, 0 };
