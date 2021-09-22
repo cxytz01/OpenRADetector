@@ -70,7 +70,9 @@ int main(int argc, char *argv[]) {
 			if (!d2kbz.Is_waiting()) continue;
 			else {
 				has_waiting_room = true;
-				SetForegroundWindow(GetConsoleWindow());
+				FLASHWINFO fwi{ sizeof FLASHWINFO, GetConsoleWindow(), FLASHW_ALL | FLASHW_TIMERNOFG, 10, 0 };
+				FlashWindowEx(&fwi);
+				//SetForegroundWindow(GetConsoleWindow());
 			}
 
 			d2kbz.print(index);

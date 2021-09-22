@@ -1,1 +1,1 @@
-OpenRADetector.exe F:\games\OpenRA\Dune2000.exe
+C:\Users\bluec\source\repos\OpenRADetector\x64\Release\OpenRADetector.exe F:\games\OpenRA\Dune2000.exe
