@@ -14,7 +14,7 @@ const httplib::Headers generateOpenRAHeader() {
 }
 
 std::optional<std::string> httprequest(std::string_view host, std::string_view path, const httplib::Headers headers) {
-	if (auto res = httplib::Client(host.data()).Get(path.data(), headers); 200 != res->status) {
-		return std::nullopt;
-	} else return res->body;
+	if (auto res = httplib::Client(host.data()).Get(path.data(), headers); res == nullptr) return std::nullopt;
+	else if (res->status != 200) return std::nullopt;
+	else return res->body;
 }
