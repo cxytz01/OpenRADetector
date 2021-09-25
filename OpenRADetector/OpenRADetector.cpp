@@ -17,6 +17,7 @@
 
 using std::string;
 using std::unordered_map;
+
 struct OpenRAInfo {
 	inline static const string WatchHost = std::move(R"(https://master.openra.net)");
 	inline static const string WatchPath = std::move(R"(/games?protocol=2&type=json)");
@@ -93,12 +94,14 @@ int main(int argc, char *argv[]) {
 			});
 
 			std::cout << "ROOM: "; std::cin.getline(line, LINEBUF);
+
+			if (elapse()) break;
+
 			string_view str_line(line);
 			if ("q" == str_line || "Q" == str_line || "quit" == str_line || "QUIT" == str_line) {
 				spdlog::info("{} to next loop.", str_line);
 				break;
 			}
-			if (elapse()) break;
 
 			if (auto it = rooms.find(line); it == rooms.end()) {
 				spdlog::error("ROOM: [{}] not found.", line);
