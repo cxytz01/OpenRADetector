@@ -45,6 +45,14 @@ int main(int argc, char *argv[]) {
 		return 0;
 	}
 
+	auto elapse = (nullptr, [&](const std::chrono::time_point<std::chrono::steady_clock> start) -> bool {
+		if (std::chrono::duration_cast<std::chrono::minutes>(std::chrono::steady_clock::now() - start).count() >= 3) {
+			spdlog::warn("Time lapse, looping...");
+			return true;
+		}
+		return false;
+	});
+
 	for (;; std::this_thread::sleep_for(std::chrono::seconds(30)), ClearScreen()) {
 		spdlog::info("Detecting...\n");
 
@@ -80,22 +88,12 @@ int main(int argc, char *argv[]) {
 			rooms.insert({ move(std::to_string(index++)), d2kbz });
 		}
 
-		for (; has_waiting_room; ) {
+		for (auto start = std::chrono::steady_clock::now(); has_waiting_room; ) {
 #define LINEBUF 128
 			static char line[LINEBUF];
 
-			auto start = std::chrono::steady_clock::now();
-			auto elapse = (nullptr, [&](...) -> bool {
-				if (std::chrono::duration_cast<std::chrono::minutes>(std::chrono::steady_clock::now() - start).count() >= 3) {
-					spdlog::warn("Time lapse, looping...");
-					return true;
-				}
-				return false;
-			});
-
 			std::cout << "ROOM: "; std::cin.getline(line, LINEBUF);
-
-			if (elapse()) break;
+			if (elapse(start)) break;
 
 			string_view str_line(line);
 			if ("q" == str_line || "Q" == str_line || "quit" == str_line || "QUIT" == str_line) {
