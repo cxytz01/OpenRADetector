@@ -27,16 +27,17 @@ OpenRABiz::OpenRABiz(decltype(nlohmann::json::parse("placeholder").items().begin
 	if (v.contains(key_clients)) {
 		for (auto& [ck, cv] : v[key_clients].items()) {
 
-			if (cv.contains(ClientInfo::key_name) &&
-				cv.contains(ClientInfo::key_fingerprint) &&
-				cv.contains(ClientInfo::key_color) &&
-				cv.contains(ClientInfo::key_faction) &&
-				cv.contains(ClientInfo::key_team) &&
-				cv.contains(ClientInfo::key_spawnpoint) &&
-				cv.contains(ClientInfo::key_isadmin) &&
-				cv.contains(ClientInfo::key_isspectator) &&
-				cv.contains(ClientInfo::key_isbot)) {
-
+			if (cv.contains(ClientInfo::key_name)
+                && cv.contains(ClientInfo::key_fingerprint)
+                && cv.contains(ClientInfo::key_color)
+                && cv.contains(ClientInfo::key_faction)
+                && cv.contains(ClientInfo::key_team)
+                && cv.contains(ClientInfo::key_spawnpoint)
+                && cv.contains(ClientInfo::key_isadmin)
+                && cv.contains(ClientInfo::key_isspectator)
+                && cv.contains(ClientInfo::key_isbot)
+               )
+            {
 				/*ClientInfo ci{
 					cv[ClientInfo::key_name].get<string>(),
 					cv[ClientInfo::key_fingerprint].get<string>(),

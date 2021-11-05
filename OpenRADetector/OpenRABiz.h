@@ -20,7 +20,8 @@ public:
 			   uint16_t    spawnpoint,
 		       bool        isadmin,
 			   bool        isspectator,
-		       bool        isbot) :
+		       bool        isbot
+              ) :
 			name(name),
 		    fingerprint(fingerprint),
 		    color(color),
