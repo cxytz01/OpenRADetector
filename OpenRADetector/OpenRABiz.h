@@ -6,9 +6,9 @@
 
 #include "nlohmann/json.hpp"
 
+using std::vector;
 using std::string;
 using std::string_view;
-using std::vector;
 
 class ClientInfo {
 public:
@@ -16,11 +16,11 @@ public:
 			   string_view fingerprint,
 		       string_view color,
 			   string_view faction, 
-			   uint16_t team,
-			   uint16_t spawnpoint,
-		       bool isadmin,
-			   bool isspectator,
-		       bool isbot) :
+			   uint16_t    team,
+			   uint16_t    spawnpoint,
+		       bool        isadmin,
+			   bool        isspectator,
+		       bool        isbot) :
 			name(name),
 		    fingerprint(fingerprint),
 		    color(color),
@@ -53,15 +53,15 @@ public:
 			isspectator(other.isspectator),
 			isbot(other.isbot) {}
 
-	string name;
-	string fingerprint;
-	string color;
-	string faction;
+	string   name;
+	string   fingerprint;
+	string   color;
+	string   faction;
 	uint16_t team;
 	uint16_t spawnpoint;
-	bool isadmin;
-	bool isspectator;
-	bool isbot;
+	bool     isadmin;
+	bool     isspectator;
+	bool     isbot;
 
 	inline const static string key_name = "name";
 	inline const static string key_fingerprint = "fingerprint";
@@ -149,25 +149,26 @@ public:
 
 protected:
 	uint32_t id;
-	string name;
-	string address;
+	string   name;
+	string   address;
 	uint16_t state;
 	uint16_t ttl;
-	string mod;
-	string version;
-	string modtitle;
-	string modwebsite;
-	string modicon32;
-	string map;
+	string   mod;
+	string   version;
+	string   modtitle;
+	string   modwebsite;
+	string   modicon32;
+	string   map;
 	uint16_t players;
 	uint16_t maxplayers;
 	uint16_t bots;
 	uint16_t spectators;
-	bool protectedx;
-	bool authentication;
-	string location;
-	string started;
+	bool     protectedx;
+	bool     authentication;
+	string   location;
+	string   started;
 	uint32_t playtime;
+
 	vector<ClientInfo> clients;
 };
 

@@ -33,7 +33,7 @@ bool OpenD2K(const LPSTR cmdline, STARTUPINFOA& si, PROCESS_INFORMATION &pi) {
 }
 
 bool OpenD2KandWaitForIt(const LPSTR cmdline) {
-	STARTUPINFOA si;
+	STARTUPINFOA        si;
 	PROCESS_INFORMATION pi;
 
 	ZeroMemory(&si, sizeof si);
