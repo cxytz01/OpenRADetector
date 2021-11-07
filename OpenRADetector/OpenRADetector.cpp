@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
 			if (elapse(start)) break;
 
 			string_view str_line(line);
-			if ("q" == str_line || "Q" == str_line || "quit" == str_line || "QUIT" == str_line) {
+			if ("q" == str_line || "Q" == str_line || "quit" == str_line || "QUIT" == str_line || 0 == str_line.length()) {
 				spdlog::info("{} to next loop.", str_line);
 				break;
 			}
